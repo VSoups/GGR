@@ -10,6 +10,11 @@
     <header>
         <nav>
             <a href="/">Home</a>
+            <% if (user) { %>
+                <a href="/logout">Log Out</a>
+            <% } else { %>
+                <a href="/auth/google">Log In</a>
+            <% } %>
         </nav>
     </header>
     <main>
