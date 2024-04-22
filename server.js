@@ -11,7 +11,7 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/home');
 const reviewsRouter = require('./routes/reviews');
 
 const app = express();

@@ -1,0 +1,15 @@
+<%- include('./partials/header') %>
+
+<h1>Good Game Reviews</h1>
+<h3>Reviews directly from fans</h3>
+
+<section id="review-list">
+    <% if (reviews.length) { %>
+        <!-- Create review divs here -->
+    <% } else { %>
+        <h4>No reviews posted yet.</h4>
+        <h4>Be the first person to make a review!</h4>
+    <% } %>
+</section>
+
+<%- include('./partials/footer') %>

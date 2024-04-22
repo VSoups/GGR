@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
+const homeController = require('../controllers/home');
+
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
@@ -32,8 +35,6 @@ router.get('/logout', function(req, res){
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', homeController.index);
 
 module.exports = router;
