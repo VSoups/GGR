@@ -4,6 +4,8 @@ const passport = require('passport');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 const homeController = require('../controllers/home');
 const calController = require('../controllers/calendar');
+// const revController = require('../controllers/reviews');
+
 
 
 // Google OAuth login route
@@ -37,10 +39,12 @@ router.get('/logout', function(req, res){
 
 /* GET home page. */
 router.get('/', homeController.index);
+// router.get('/reviews/new', ensureLoggedIn, revController.new);
+
 
 
 
 // Calendar example page
-router.get('/calendar', calController.index)
+router.get('/calendar', calController.index);
 
 module.exports = router;

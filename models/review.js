@@ -11,6 +11,7 @@ const reviewSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Game',
     },
+    content: String,
     rating: Number,
 }, {
     timestamps: true,

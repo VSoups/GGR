@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<h1>New Review</h1>
+
+<form action="/reviews" method="POST" id="rev-form">
+    <!-- <input type="text" name="content" id="rev-text"> -->
+    <textarea name="content" id="rev-text" cols="30" rows="10" placeholder="I love Terraria!"></textarea>
+    <select name="game" class="rev-select">
+        <%- game.map(g => 
+            `<option value="${g._id}">${g.name}</option>`
+        ) %>
+    </select>
+    <select name="rating">
+        <% for (let i = 1; i <=10; i++) { %>
+            <%- `<option value="${i}">${i}</option>` %>
+        <% } %>
+    </select>
+    <button type="submit">Post Review</button>
+</form>
+
+<%- include('../partials/footer') %>

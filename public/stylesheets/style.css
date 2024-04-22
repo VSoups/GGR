@@ -77,3 +77,16 @@ footer {
   background-color: black;
   color: white;
 }
+
+/* #rev-form {
+  height: 30vmin;
+  height: 50vmin;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: 3fr 2fr 1fr;
+}
+
+#rev-text {
+  width: 15vmin;
+  height: 10vmin;
+} */

@@ -8,7 +8,6 @@ module.exports = {
 
 
 async function index(req,res){
-
     const reviews = await Review.find({});
     res.render('home', { title: 'Good Game Reviews', reviews });
 }
