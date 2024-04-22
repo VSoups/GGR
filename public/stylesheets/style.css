@@ -30,6 +30,31 @@ footer {
   margin-top: 5rem;
 }
 
+#date {
+  display: inline;
+}
+
+#date-picker > div:first-of-type {
+  position: relative;
+  margin: 0 auto 1rem;
+  width: 9.4rem;
+}
+
+#date-picker > div:first-of-type > a:first-of-type {
+  position: absolute;
+  left: 0;
+}
+
+#date-picker > div:first-of-type > a:last-of-type {
+  position: absolute;
+  right: 0;
+}
+
+.date-arrows {
+  color: green;
+  text-decoration: none;
+}
+
 #calendar {
   margin: 0 auto;
   width: max-content;

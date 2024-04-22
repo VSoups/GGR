@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 const homeController = require('../controllers/home');
+const calController = require('../controllers/calendar');
 
 
 // Google OAuth login route
@@ -36,5 +37,10 @@ router.get('/logout', function(req, res){
 
 /* GET home page. */
 router.get('/', homeController.index);
+
+
+
+// Calendar example page
+router.get('/calendar', calController.index)
 
 module.exports = router;

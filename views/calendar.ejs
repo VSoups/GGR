@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+
+<section id="date-picker">
+    <div>
+        <!-- using '/' as href because we are using home page -->
+        <a href="/calendar?year=<%= year %>&month=<%= month - 1 %>" class="date-arrows">◀</a>
+        <h4 id="date"><%= monthNames[month] %>, <%= year %></h4>
+        <a href="/calendar?year=<%= year %>&month=<%= month + 1 %>" class="date-arrows">▶</a>
+    </div>
+    <section id="calendar">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+        <% for (let day = 1; day <= daysInMon; day++) { %>
+            <% if (day === 1) { %>
+                <div style="grid-column: <%= dow %>;"><%= day %></div>
+            <% } else { %>
+                <div><%= day %></div>
+            <% } %>
+        <% } %>
+    </section>
+</section>
+
+<%- include('./partials/footer') %>
