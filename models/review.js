@@ -12,6 +12,8 @@ const reviewSchema = new Schema({
         ref: 'Game',
     },
     rating: Number,
+}, {
+    timestamps: true,
 });
 
 module.exports = mongoose.model('Review', reviewSchema);
