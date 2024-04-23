@@ -1,8 +1,7 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
-<h1>Good Game Reviews</h1>
-<h3>Reviews written by fans</h3>
-<a href="/reviews/new" id="rev-post">Make a Review</a>
+<h1><%= game.name %> Reviews</h1>
+
 <section class="review-list">
     <% if (reviews.length) { %>
         <% reviews.forEach(function(r) { %>
@@ -14,11 +13,8 @@
             </div>
         <% }) %>
     <% } else { %>
-        <h4 id="no-reviews">No reviews posted yet.<br><br>Be the first person to make a review!</h4>
-        
+        <h4 id="no-reviews">No reviews for this game yet.<br><br>Be the first person to make a review for <%= game.name %>!</h4>
     <% } %>
 </section>
 
-
-
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>

@@ -1,10 +1,10 @@
 exports.games = [
-    {appid: 105600, name: 'Terraria', favoritedBy: [], tags: []},
-    {appid: 975370, name: 'Dwarf Fortress', favoritedBy: [], tags: []},
-    {appid: 413150, name: 'Stardew Valley', favoritedBy: [], tags: []},
-    {appid: 892970, name: 'Valheim', favoritedBy: [], tags: []},
-    {appid: 753640, name: 'Outer Wilds', favoritedBy: [], tags: []},
-    {appid: 1454400, name: 'Cookie Clicker', favoritedBy: [], tags: []},
+    {appid: 105600, name: 'Terraria'},
+    {appid: 975370, name: 'Dwarf Fortress'},
+    {appid: 413150, name: 'Stardew Valley'},
+    {appid: 892970, name: 'Valheim'},
+    {appid: 753640, name: 'Outer Wilds'},
+    {appid: 1454400, name: 'Cookie Clicker'},
 ];
 
 exports.tags = [

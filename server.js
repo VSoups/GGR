@@ -14,6 +14,7 @@ require('./config/passport');
 const indexRouter = require('./routes/index');
 const reviewsRouter = require('./routes/reviews');
 const gamesRouter = require('./routes/games');
+const userRouter = require('./routes/user');
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/reviews', reviewsRouter);
 app.use('/games', gamesRouter);
+app.use('/user', userRouter);
 
 // error stuff
 

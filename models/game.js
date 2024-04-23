@@ -13,6 +13,8 @@ const gameSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Tag',
     }],
+    // make an array of names taken from tags?
+    // tagName: [],
 }, {
     timestamps: true,
 });

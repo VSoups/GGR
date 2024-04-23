@@ -4,6 +4,14 @@ const Game = require('../models/game');
 module.exports = {
     new: newReview,
     create,
+    show,
+}
+
+async function show(req, res) {
+    const game = await Game.findById(req.params.id);
+    const reviews = await Review.find({ game: `${game._id}` });
+
+    res.render('reviews/show', { title: `GGR: ${game.name}`, game, reviews})
 }
 
 async function create(req, res) {

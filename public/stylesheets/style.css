@@ -30,54 +30,6 @@ footer {
   margin-top: 5rem;
 }
 
-#date {
-  display: inline;
-}
-
-#date-picker > div:first-of-type {
-  position: relative;
-  margin: 0 auto 1rem;
-  width: 9.4rem;
-}
-
-#date-picker > div:first-of-type > a:first-of-type {
-  position: absolute;
-  left: 0;
-}
-
-#date-picker > div:first-of-type > a:last-of-type {
-  position: absolute;
-  right: 0;
-}
-
-.date-arrows {
-  color: green;
-  text-decoration: none;
-}
-
-#calendar {
-  margin: 0 auto;
-  width: max-content;
-  display: grid;
-  grid-template-columns: repeat(7, auto);
-  /* grid-template-rows: repeat(1fr 7); */
-  gap: 1vmin;
-}
-
-#calendar > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  width: 3rem;
-  border: 2px solid black;
-}
-
-#calendar > div:nth-child(n+1):nth-child(-n+7) {
-  background-color: black;
-  color: white;
-}
-
 .user-img {
   height: 2rem;
   width: 2rem;
@@ -85,28 +37,42 @@ footer {
   border-radius: 50%;
 }
 
-#review-list {
+.review-list {
   margin: 5rem 5vmin;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(6 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1rem;
+  align-self: center;
+}
+
+#no-reviews {
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 6;
 }
 
 .review {
-  display: inline;
-  width: 15rem;
-  height: 13rem;
+  position: relative;
+  /* display: inline; */
+  width: 20rem;
+  height: 15rem;
   border: 3px solid black;
   border-radius: 5%;
   background-color: aliceblue;
+  overflow-y: auto;
+}
+
+#review-content {
+  margin: 20px 8px;
+  text-align: left;
 }
 
 #game-list {
+  margin: 10rem 5rem;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
-
+  align-self: center;
 }
 
 .game {
@@ -116,6 +82,53 @@ footer {
   border: 3px solid black;
   border-radius: 5%;
   background-color: aliceblue;
+}
+
+#profile-reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 3.5rem auto;
+  gap: 1rem;
+  position: relative;
+  left: 35vmin;
+  width: max-content;
+  margin-top: 5rem;
+}
+
+#profile-reviews > h3:first-of-type {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+@media only screen and (max-width: 1700px) {
+  #profile-reviews{
+    margin: 5rem auto;
+    left: auto;
+  }
+}
+
+@media only screen and (max-width: 1375px) {
+  #game-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1075px) {
+  #game-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #game-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #game-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* .review p:first-of-type {

@@ -9,5 +9,7 @@ const revController = require('../controllers/reviews');
 router.get('/new', ensureLoggedIn, revController.new);
 // POST new review
 router.post('/', ensureLoggedIn, revController.create);
+// GET review show page
+router.get('/:id', revController.show);
 
 module.exports = router;
