@@ -11,8 +11,9 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-const homeRouter = require('./routes/home');
+const indexRouter = require('./routes/index');
 const reviewsRouter = require('./routes/reviews');
+const gamesRouter = require('./routes/games');
 
 const app = express();
 
@@ -43,8 +44,9 @@ app.use(function (req, res, next) {
 });
 
 
-app.use('/', homeRouter);
+app.use('/', indexRouter);
 app.use('/reviews', reviewsRouter);
+app.use('/games', gamesRouter);
 
 // error stuff
 

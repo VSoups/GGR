@@ -7,10 +7,12 @@ const reviewSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
+    avatar: String,
     game: {
         type: Schema.Types.ObjectId,
         ref: 'Game',
     },
+    gameName: String,
     content: String,
     rating: Number,
 }, {

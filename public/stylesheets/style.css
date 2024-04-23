@@ -78,6 +78,50 @@ footer {
   color: white;
 }
 
+.user-img {
+  height: 2rem;
+  width: 2rem;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+#review-list {
+  margin: 5rem 5vmin;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(6 1fr);
+  gap: 1rem;
+}
+
+.review {
+  display: inline;
+  width: 15rem;
+  height: 13rem;
+  border: 3px solid black;
+  border-radius: 5%;
+  background-color: aliceblue;
+}
+
+#game-list {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+
+}
+
+.game {
+  width: 15rem;
+  height: 18rem;
+  padding: 0.5rem;
+  border: 3px solid black;
+  border-radius: 5%;
+  background-color: aliceblue;
+}
+
+/* .review p:first-of-type {
+  vertical-align: middle;
+} */
+
 /* #rev-form {
   height: 30vmin;
   height: 50vmin;

@@ -3,6 +3,7 @@ const router = express.Router();
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 const revController = require('../controllers/reviews');
 
+// route = '/reviews'
 
 // GET review creation page
 router.get('/new', ensureLoggedIn, revController.new);
