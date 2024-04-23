@@ -1,11 +1,18 @@
 <%- include('./partials/header') %>
 
 <h1>Good Game Reviews</h1>
-<h3>Reviews directly from fans</h3>
+<h3>Reviews written by fans</h3>
 <a href="/reviews/new" id="rev-post">Make a Review</a>
 <section id="review-list">
     <% if (reviews.length) { %>
         <!-- Create review divs here -->
+        <% reviews.forEach(function(r) { %>
+            <div class="review">
+                <h3><%= r.game %> - <%= r.rating %></h3>
+                <p><strong>Made by: <%= r.username %></strong></p>
+                <p><%= r.content %></p>
+            </div>
+        <% }) %>
     <% } else { %>
         <h4>No reviews posted yet.</h4>
         <h4>Be the first person to make a review!</h4>
