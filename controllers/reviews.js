@@ -5,6 +5,23 @@ module.exports = {
     new: newReview,
     create,
     show,
+    update,
+}
+
+async function update(req, res) {
+    try {
+        const updatedReview = await Review.findOneAndUpdate(
+            {_id: req.params.id, user: req.user._id},
+            // update object with updated properties
+            req.body,
+            // options object {new: true} returns updated doc
+            {new: true}
+        );
+        return res.redirect('/');
+    } catch (e) {
+        console.log(e.message);
+        return res.redirect('/');
+    }
 }
 
 async function show(req, res) {

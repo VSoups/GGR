@@ -9,8 +9,7 @@ module.exports = {
 
 
 async function index(req, res) {
-    const games = await Game.find({});
-    const tags = await Tag.find({});
+    const games = await Game.find({}).populate('tags');
 
-    res.render('games/index', { title: 'GGR: Games List', games, tags });
+    res.render('games/index', { title: 'GGR: Games List', games });
 }

@@ -9,7 +9,7 @@
             <h3><%= g.name %></h3><hr>
             <% if (g.tags.length) { %>
                 <% g.tags.forEach(function(t) { %>
-                    <p><%= t %></p>
+                    <p><%= t.name %></p>
                 <% }); %>
             <% } %>
             <a href="/reviews/<%= g._id %>">Reviews</a>

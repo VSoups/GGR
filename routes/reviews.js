@@ -11,5 +11,7 @@ router.get('/new', ensureLoggedIn, revController.new);
 router.post('/', ensureLoggedIn, revController.create);
 // GET review show page
 router.get('/:id', revController.show);
+// PUT review update
+router.put('/:id', ensureLoggedIn, revController.update);
 
 module.exports = router;

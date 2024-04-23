@@ -11,6 +11,11 @@
                 <h3><%= r.gameName %> - <%= r.rating %>/10</h3>
                 <p><strong><img src="<%= r.avatar %>" class="user-img" referrerpolicy="no-referrer" alt="avatar"> <%= r.username %></strong></p>
                 <p id="review-content"><%= r.content %></p>
+                <button data-review="<%= r._id %>">edit</button>
+                <form id="<%= r._id %>-form" style="display: none;" action="/reviews/<%= r._id %>?_method=PUT" method="POST">
+                    <textarea name="content" cols="30" rows="10"><%= r.content %></textarea>
+                    <button type="submit">Save</button>
+                </form>
             </div>
         <% }) %>
     <% } else { %>
@@ -20,5 +25,5 @@
 </section>
 
 
-
+<script src="/javascripts/edit-reviews.js"></script>
 <%- include('./partials/footer') %>
