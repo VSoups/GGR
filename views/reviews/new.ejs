@@ -6,9 +6,14 @@
     <!-- <input type="text" name="content" id="rev-text"> -->
     <textarea name="content" id="rev-text" cols="50" rows="15" placeholder="I love Terraria!"></textarea>
     <select name="game" class="rev-select">
-        <%- game.map(g => 
-            `<option value="${g._id}">${g.name}</option>`
-        ) %>
+        <% game.map(function(g) { %>
+            <% if (chosenGame === g._id) { %>
+                <!-- not selecting (if statement data mismatch?) -->
+                <option value="<%= g._id %>" selected><%= g.name %></option>
+            <% } else { %>
+                <option value=<%= g._id %>><%= g.name %></option>
+            <% } %>
+        <% }) %>
     </select>
     <select name="rating">
         <% for (let i = 10; i >=1; i--) { %>

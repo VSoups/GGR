@@ -6,16 +6,19 @@
 <section id="game-list">
     <% games.forEach(function(g) { %>
         <div class="game">
+            <% if (user) { %>
+                <form action="/games/<%= g._id %>" method="POST">
+                    <button type="submit" id="fave-button"><img id="fave-icon" src="/public/images/normal-star.png" alt="favorite star"></button>
+                </form>
+            <% } %>
             <h3><%= g.name %></h3><hr>
             <div id="tag-list">
                 <% if (g.tags.length) { %>
                     <% g.tags.forEach(function(t) { %>
                         <div id="tag-div">
-                            <p class="tag">
-                                <%= t.name %>
-                            </p>
+                            <p class="tag"><%= t.name %></p>
                             <% if (user) { %>
-                                <form action="/tags/<%= t._id %>?_method=DELETE" method="POST">
+                                <form action="/games/<%= g._id %>/tags/<%= t._id %>" method="POST">
                                     <button type="submit">X</button>
                                 </form>
                             <% } %>
@@ -33,8 +36,8 @@
                     </select>
                     <button type="submit">+</button>
                 </form>
-                <a href="/reviews/<%= g._id %>">Reviews</a>
-            <% } %>
+                <% } %>
+            <a href="/reviews/<%= g._id %>">Reviews</a>
         </div>
     <% }) %>
 </section>

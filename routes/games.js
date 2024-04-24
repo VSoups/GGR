@@ -9,8 +9,10 @@ const gamesController = require('../controllers/games');
 router.get('/', gamesController.index);
 // POST add tag to game
 router.post('/:id/tags', ensureLoggedIn, gamesController.addTag);
-// DELETE? remove tag from game
-
+// POST? remove tag from game
+router.post('/:gameId/tags/:tagId', ensureLoggedIn, gamesController.deleteTag);
+// POST favorite game
+router.post('/:id', ensureLoggedIn, gamesController.favorite);
 
 
 module.exports = router;
