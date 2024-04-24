@@ -6,15 +6,21 @@ const reviewSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: true,
     },
     avatar: String,
     game: {
         type: Schema.Types.ObjectId,
         ref: 'Game',
+        // auto generate enums based on seeded games?
     },
     gameName: String,
     content: String,
-    rating: Number,
+    rating: {
+        type: Number,
+        min: 1,
+        max: 10,
+    },
 }, {
     timestamps: true,
 });

@@ -13,5 +13,7 @@ router.post('/', ensureLoggedIn, revController.create);
 router.get('/:id', revController.show);
 // PUT review update
 router.put('/:id', ensureLoggedIn, revController.update);
+// DELETE review
+router.delete('/:id', ensureLoggedIn, revController.delete);
 
 module.exports = router;

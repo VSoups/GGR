@@ -1,18 +1,40 @@
 <%- include('../partials/header') %>
 
-<h1>Games List</h1>
 
+<h1>Games List</h1>
 
 <section id="game-list">
     <% games.forEach(function(g) { %>
         <div class="game">
             <h3><%= g.name %></h3><hr>
-            <% if (g.tags.length) { %>
-                <% g.tags.forEach(function(t) { %>
-                    <p><%= t.name %></p>
-                <% }); %>
+            <div id="tag-list">
+                <% if (g.tags.length) { %>
+                    <% g.tags.forEach(function(t) { %>
+                        <div id="tag-div">
+                            <p class="tag">
+                                <%= t.name %>
+                            </p>
+                            <% if (user) { %>
+                                <form action="/tags/<%= t._id %>?_method=DELETE" method="POST">
+                                    <button type="submit">X</button>
+                                </form>
+                            <% } %>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </div>
+            <% if (user) { %>
+                <form id="add-tag" action="/games/<%= g._id %>/tags" method="POST">
+                    <select name="tags">
+                        <option value="">Add Tag</option>
+                        <% tags.forEach(function(t) { %>
+                            <option value="<%= t._id %>"><%= t.name %></option>
+                        <% }); %>
+                    </select>
+                    <button type="submit">+</button>
+                </form>
+                <a href="/reviews/<%= g._id %>">Reviews</a>
             <% } %>
-            <a href="/reviews/<%= g._id %>">Reviews</a>
         </div>
     <% }) %>
 </section>

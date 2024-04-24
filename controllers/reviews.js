@@ -6,6 +6,15 @@ module.exports = {
     create,
     show,
     update,
+    delete: deleteReview, 
+};
+
+async function deleteReview(req, res) {
+    await Review.findOneAndDelete(
+        // match post id with selected post and check if user id matches
+        {_id: req.params.id, user: req.user.id}
+    );
+    res.redirect('/user');
 }
 
 async function update(req, res) {
@@ -17,10 +26,10 @@ async function update(req, res) {
             // options object {new: true} returns updated doc
             {new: true}
         );
-        return res.redirect('/');
+        return res.redirect('/user');
     } catch (e) {
         console.log(e.message);
-        return res.redirect('/');
+        return res.redirect('/user');
     }
 }
 
