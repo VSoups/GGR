@@ -9,11 +9,14 @@ html, body {
   margin: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Inconsolata", Helvetica, Arial, sans-serif;
   background: linear-gradient(to bottom left, whitesmoke, slategray);
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {
@@ -43,7 +46,29 @@ main {
 }
 
 footer {
-  margin: 5rem 0 3rem;
+  margin: 2rem 0 5vmin;
+  padding: 20px;
+  text-align: center;
+}
+
+#fave-icon {
+  width: 1rem;
+}
+
+#fave-button, #unfave-button {
+  background-color: transparent;
+  border: none;
+  margin-left: 3px;
+}
+
+#fave-button:hover {
+  border-radius: 50%;
+  background-color: gold;
+}
+
+#unfave-button:hover {
+  border-radius: 50%;
+  background-color: darkred;
 }
 
 #title-zone {
@@ -74,6 +99,84 @@ footer {
   background-color: azure;
   color: royalblue;
   border-color: royalblue;
+}
+
+#new-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1.5rem 1.5rem;
+  gap: 2rem;
+  margin: 3rem;
+  padding: 1rem;
+  max-width: 50rem;
+  width: 50vmax;
+  min-width: 10vmin;
+  align-self: center;
+  border: 8px solid black;
+  border-radius: 8%;
+  background-color:lavender;
+}
+
+#rev-text {
+  height: 20rem;
+  resize: none;
+  font-size: large;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  place-self: stretch;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5%;
+}
+
+#rev-game {
+  width: 8rem;
+  height: 1.5rem;
+  align-self: center;
+  justify-self: center;
+  border: 2px solid black;
+  background-color: paleturquoise;
+  cursor: context-menu;
+}
+
+#rev-game:hover {
+  border-color: blueviolet;
+  background-color: whitesmoke;
+}
+
+#rev-rating {
+  text-align: center;
+  width: 3rem;
+  height: 1.5rem;
+  align-self: center;
+  justify-self: center;
+  border: 2px solid black;
+  background-color: paleturquoise;
+  cursor: context-menu;
+}
+
+#rev-rating:hover {
+  border-color: blueviolet;
+  background-color: whitesmoke;
+}
+
+#new-rev-btn {
+  width: 8rem;
+  align-self: center;
+  justify-self: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 5px;
+  border: 2px solid black;
+  background-color: lightgreen;
+  color: black;
+  border-radius: 5%;
+}
+
+#new-rev-btn:hover {
+  border-color: seagreen;
+  background-color: ghostwhite;
+  cursor: pointer;
 }
 
 #tag-list {
@@ -118,11 +221,47 @@ footer {
   margin-bottom: 10px;
 }
 
+#add-tag > select {
+  padding: 2px;
+  background-color: slategray;
+  color: white;
+  border: 2px solid black;
+}
+
+#add-tag > select:hover {
+  background-color: lime;
+  color: black;
+}
+
+#add-tag > button {
+  font-size: larger;
+  color: white;
+  background-color: slategray;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: fit-content;
+}
+
+#add-tag > button:hover {
+  background-color: lime;
+  color: black;
+}
+
+#game-page-link {
+  color: black;
+}
+
+#game-page-link:hover {
+  color: midnightblue;
+  text-decoration: underline;
+}
+
 .user-img {
   height: 2rem;
   width: 2rem;
   border: 2px solid black;
   border-radius: 50%;
+  margin-right: 5px;
 }
 
 .review-list {
@@ -146,13 +285,20 @@ footer {
 
 .review {
   position: relative;
-  /* display: inline; */
+  font-size: 16px;
   width: 20rem;
-  height: 15rem;
+  height: 17rem;
   border: 3px solid black;
   border-radius: 5%;
   background-color: aliceblue;
   overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+#user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #review-content {
@@ -185,6 +331,17 @@ footer {
   border-radius: 5%;
   background-color: aliceblue;
   overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+#game-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-title > * {
+  width: max-content;
 }
 
 #rev-post {
@@ -203,14 +360,16 @@ footer {
 }
 
 #profile-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 5rem;
-  justify-content: center;
   margin-top: 8rem;
 }
 
 #profile-reviews {
   width: max-content;
+  min-width: 25rem;
+  justify-self: center;
 }
 
 #profile-review-list {
@@ -222,6 +381,8 @@ footer {
 #favorite-games {
   width: max-content;
   display: block;
+  min-width: 28rem;
+  justify-self: center;
 }
 
 #profile-game-list {
@@ -232,9 +393,13 @@ footer {
 
 #edit-text {
   margin: 10px 8px;
+  border: 2px solid black;
+  border-radius: 5%;
+  padding: 5px;
   outline: none;
   resize: none;
-  max-height: 10rem;
+  max-height: 12rem;
+  scrollbar-width: thin;
 }
 
 #delete-review-btn {
@@ -254,7 +419,7 @@ footer {
   background-color: skyblue;
   border: 1px solid black;
   color: black;
-  margin: 5px 0 2px;
+  margin: 5px 0 8px;
 }
 
 #edit-review-btn:hover {
@@ -267,7 +432,7 @@ footer {
   background-color: mediumspringgreen;
   border: 1px solid black;
   color: black;
-  margin: 2px 0 5px;
+  margin: 2px 0 8px;
 }
 
 #save-review-btn:hover {
@@ -276,10 +441,21 @@ footer {
   color: mediumspringgreen;
 }
 
-@media only screen and (max-width: 1700px) {
-  #profile-reviews{
-    margin: 5rem auto;
-    left: auto;
+@media only screen and (max-width: 2150px) {
+  #profile-game-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1900px) {
+  #profile-game-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1650px) {
+  #profile-review-list{
+    grid-template-columns: 1fr 1fr;
   }
 
   .review-list {
@@ -294,12 +470,28 @@ footer {
 }
 
 @media only screen and (max-width: 1375px) {
+  #profile-content {
+    gap: 2.5rem;
+  }
+
   #game-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   
   .review-list {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1260px) {
+  #profile-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+  }
+
+  #profile-reviews {
+    height: max-content;
   }
 }
 
@@ -324,20 +516,3 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
-/* .review p:first-of-type {
-  vertical-align: middle;
-} */
-
-/* #rev-form {
-  height: 30vmin;
-  height: 50vmin;
-  display: grid;
-  grid-template-columns: repeat(10, auto);
-  grid-template-rows: 3fr 2fr 1fr;
-}
-
-#rev-text {
-  width: 15vmin;
-  height: 10vmin;
-} */

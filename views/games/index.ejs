@@ -7,20 +7,23 @@
 <section id="game-list">
     <% games.forEach(function(g) { %>
         <div class="game">
-            <% if (user) { %>
-                <% if (g.favoritedBy.includes(user._id)) { %>
-                    <!-- show unfavorite if already favorited -->
-                    <form action="/games/<%= g._id %>/unfavor/<%= user._id %>" method="POST">
-                        <button type="submit" id="fave-button"><img id="fave-icon" src="/public/images/favorite-star.png" alt="favorite star"></button>
-                    </form>
-                <% } else { %>
-                    <!-- show favorite if not favorited yet -->
-                    <form action="/games/<%= g._id %>" method="POST">
-                        <button type="submit" id="fave-button"><img id="fave-icon" src="/public/images/normal-star.png" alt="not favorite"></button>
-                    </form>
+            <section id="game-title">
+                <h3><a href="/reviews/<%= g._id %>" id="title-link"><%= g.name %></a></h3>
+                <% if (user) { %>
+                    <% if (g.favoritedBy.includes(user._id)) { %>
+                        <!-- show unfavorite if already favorited -->
+                        <form action="/games/<%= g._id %>/unfavor/<%= user._id %>" method="POST">
+                            <button type="submit" id="unfave-button"><img id="fave-icon" src="/images/favorite-star.png" alt="favorited"></button>
+                        </form>
+                    <% } else { %>
+                        <!-- show favorite if not favorited yet -->
+                        <form action="/games/<%= g._id %>" method="POST">
+                            <button type="submit" id="fave-button"><img id="fave-icon" src="/images/normal-star.png" alt="not favorite"></button>
+                        </form>
+                    <% } %>
                 <% } %>
-            <% } %>
-            <h3><a href="/reviews/<%= g._id %>" id="title-link"><%= g.name %></a></h3><hr>
+            </section>
+            <hr>
             <div id="tag-list">
                 <!-- create tag list for the game -->
                 <% if (g.tags.length) { %>
@@ -50,7 +53,7 @@
                 </form>
                 <% } %>
             <!-- link to game's reviews -->
-            <a href="/reviews/<%= g._id %>">Reviews</a>
+            <a href="/reviews/<%= g._id %>" id="game-page-link">All Reviews</a>
         </div>
     <% }) %>
 </section>

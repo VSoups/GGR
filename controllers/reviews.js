@@ -62,6 +62,5 @@ async function create(req, res) {
 async function newReview(req, res) {
     const game = await Game.find({});
     const chosenGame = req.query.game;
-    console.log(chosenGame);
     res.render('reviews/new', { title: 'GGR: New Review', game, chosenGame });
 }

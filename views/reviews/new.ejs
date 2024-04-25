@@ -1,26 +1,32 @@
 <%- include('../partials/header') %>
 
-<h1>New Review</h1>
+<section id="title-zone">
+    <h1 id="title">New Review</h1>
+</section>
 
 <form action="/reviews" method="POST" id="new-form">
     <!-- <input type="text" name="content" id="rev-text"> -->
-    <textarea name="content" id="rev-text" cols="50" rows="15" placeholder="I love Terraria!"></textarea>
-    <select name="game" class="rev-select">
-        <% game.map(function(g) { %>
-            <% if (chosenGame === g._id) { %>
-                <!-- not selecting (if statement data mismatch?) -->
-                <option value="<%= g._id %>" selected><%= g.name %></option>
-            <% } else { %>
-                <option value=<%= g._id %>><%= g.name %></option>
+    <textarea name="content" id="rev-text" placeholder="I love Terraria!"></textarea>
+    <label id="game-label">Game:
+        <select name="game" id="rev-game">
+            <% game.map(function(g) { %>
+                <% if (chosenGame === g._id) { %>
+                    <!-- not selecting (if statement data mismatch?) -->
+                    <option class="game-option" value="<%= g._id %>" selected><%= g.name %></option>
+                <% } else { %>
+                    <option class="game-option" value=<%= g._id %>><%= g.name %></option>
+                <% } %>
+            <% }) %>
+        </select>
+    </label>
+    <label>Rating:
+        <select name="rating" id="rev-rating">
+            <% for (let i = 10; i >=1; i--) { %>
+                <%- `<option class="rating-option" value="${i}">${i}</option>` %>
             <% } %>
-        <% }) %>
-    </select>
-    <select name="rating">
-        <% for (let i = 10; i >=1; i--) { %>
-            <%- `<option value="${i}">${i}</option>` %>
-        <% } %>
-    </select>
-    <button type="submit">Post Review</button>
+        </select>
+    </label>
+    <button type="submit" id="new-rev-btn">Post Review</button>
 </form>
 
 <%- include('../partials/footer') %>
