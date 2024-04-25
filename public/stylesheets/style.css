@@ -109,6 +109,15 @@ footer {
   align-self: center;
 }
 
+#title-link {
+  color: black;
+}
+
+#title-link:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
 .game {
   width: 15rem;
   height: 18rem;

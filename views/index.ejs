@@ -10,7 +10,7 @@
         <% reviews.forEach(function(r) { %>
             <div class="review">
                 <!-- make game name a link to game's reviews (show) page? -->
-                <h3><%= r.gameName %> - <%= r.rating %>/10</h3>
+                <h3><a href="/reviews/<%= r.game %>" id="title-link"><%= r.gameName %></a> - <%= r.rating %>/10</h3>
                 <p><strong><img src="<%= r.avatar %>" class="user-img" referrerpolicy="no-referrer" alt="avatar"> <%= r.username %></strong></p>
                 <p id="review-content"><%= r.content %></p>
             </div>

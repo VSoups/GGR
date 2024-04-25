@@ -19,7 +19,7 @@
                     </form>
                 <% } %>
             <% } %>
-            <h3><%= g.name %></h3><hr>
+            <h3><a href="/reviews/<%= g._id %>" id="title-link"><%= g.name %></a></h3><hr>
             <div id="tag-list">
                 <!-- create tag list for the game -->
                 <% if (g.tags.length) { %>
