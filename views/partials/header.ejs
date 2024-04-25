@@ -9,13 +9,13 @@
 <body>
     <header>
         <nav>
-            <a href="/">Home</a>
-            <a href="/games">Games</a>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/games">Games</a>
             <% if (user) { %>
-                <a href="/logout">Log Out</a>
-                <a href="/user">Profile</a>
+                <a class="nav-link" href="/logout">Log Out</a>
+                <a class="nav-link" href="/user">Profile</a>
             <% } else { %>
-                <a href="/auth/google">Log In</a>
+                <a class="nav-link" href="/auth/google">Log In</a>
             <% } %>
         </nav>
     </header>

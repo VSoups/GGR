@@ -1,10 +1,12 @@
 <%- include('./partials/header') %>
 
-<h1>Good Game Reviews</h1>
-<h3>Reviews written by fans</h3>
-<% if (user) { %>
-    <a href="/reviews/new" id="rev-post">Make a Review</a>
-<% } %>
+<section id="title-zone">
+    <h1 id="title">Good Game Reviews</h1>
+    <h3>Reviews written by fans</h3>
+    <% if (user) { %>
+        <a href="/reviews/new" id="rev-post">Make a Review</a>
+    <% } %>
+</section>
 <section class="review-list">
     <% if (reviews.length) { %>
         <% reviews.forEach(function(r) { %>

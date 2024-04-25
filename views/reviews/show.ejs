@@ -1,9 +1,11 @@
 <%- include('../partials/header') %>
 
-<h1><%= game.name %> Reviews</h1>
-<% if (user) { %>
-    <a href="/reviews/new?game=<%= game._id %>" id="rev-post">Make a Review</a>
-<% } %>
+<section id="title-zone">
+    <h1 id="title"><%= game.name %> Reviews</h1>
+    <% if (user) { %>
+        <a href="/reviews/new?game=<%= game._id %>" id="rev-post">Make a Review</a>
+    <% } %>
+</section>
 
 <section class="review-list">
     <% if (reviews.length) { %>
