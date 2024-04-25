@@ -10,6 +10,6 @@ module.exports = {
 
 async function index(req,res){
     const reviews = await Review.find({});
-    // add user query to get all?
-    res.render('index', { title: 'Good Game Reviews', reviews });
+
+    res.render('index', { title: 'Good Game Reviews', reviews, });
 }

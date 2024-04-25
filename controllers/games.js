@@ -8,22 +8,40 @@ module.exports = {
     addTag,
     deleteTag,
     favorite,
+    unfavorite,
 };
+
+async function unfavorite(req, res) {
+    const game = await Game.findById(req.params.gameId);
+    await game.favoritedBy.remove(req.params.userId);
+    try {
+        game.save();
+    } catch (error) {
+        console.log(error)
+    }
+    res.redirect('/games');
+}
 
 async function favorite(req, res) {
     const game = await Game.findById(req.params.id);
-    
-
+    game.favoritedBy.push(req.user._id);
+    try {
+        game.save();
+    } catch (error) {
+        console.log(error);
+        res.redirect('/games');
+    }
+    res.redirect('/games');
 }
 
 async function deleteTag(req, res) {
-    // console.log(req.params.gameId); // correct
-    // console.log(req.params.tagId) // correct
     const game = await Game.findById(req.params.gameId);
-    const tagIndex = await game.tags.indexOf(req.params.tagId);
-    await console.log(tagIndex);
-    await game.tags.splice(tagIndex, 1);
-    await game.save();
+    await game.tags.remove(req.params.tagId);
+    try {
+        game.save();
+    } catch (error) {
+        console.log(error);
+    }
     res.redirect('/games');
 }
 
@@ -32,7 +50,11 @@ async function addTag(req, res) {
     // do not add if tag exists
     if (req.body.tags === '' || game.tags.some(tag => tag.equals(req.body.tags))) return res.redirect('/games');
     game.tags.push(req.body.tags);
-    await game.save();
+    try {
+        await game.save();
+    } catch (error) {
+        console.log(error);
+    }
     res.redirect('/games');
 }
 

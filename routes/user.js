@@ -3,6 +3,7 @@ const router = express.Router();
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 const User = require('../models/user');
 const Review = require('../models/review');
+const Game = require('../models/game');
 
 // route: /user
 
@@ -10,7 +11,9 @@ const Review = require('../models/review');
 router.get('/', ensureLoggedIn, async function(req, res) {
     const user = res.locals.user;
     const reviews = await Review.find({ user: user._id });
-    res.render('user/index', { title: 'GGR: Profile', user, reviews });
+    const favoriteGames = await Game.find({ favoritedBy: req.user.id }).populate('tags');
+
+    res.render('user/index', { title: 'GGR: Profile', user, reviews, favoriteGames });
 });
 
 

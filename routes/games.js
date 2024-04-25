@@ -13,6 +13,8 @@ router.post('/:id/tags', ensureLoggedIn, gamesController.addTag);
 router.post('/:gameId/tags/:tagId', ensureLoggedIn, gamesController.deleteTag);
 // POST favorite game
 router.post('/:id', ensureLoggedIn, gamesController.favorite);
+// POST unfavorite game
+router.post('/:gameId/unfavor/:userId', ensureLoggedIn, gamesController.unfavorite);
 
 
 module.exports = router;

@@ -22,9 +22,43 @@
             </div>
         <% }) %>
     <% } else { %>
-        <p id="no-profile-reviews">No game reviews yet.</p>
+        <p id="no-profile-reviews">No game reviews yet</p>
     <% } %>
 </section>
+
+<secction id="favorite-games">
+    <h3>Favorite Games</h3>
+    <% if (favoriteGames.length) { %>
+        <section id="game-list">
+            <% favoriteGames.forEach(function(g) { %>
+                <div class="game">
+                    <% if (user) { %>
+                        <% if (g.favoritedBy.includes(user._id)) { %>
+                            <!-- show unfavorite if already favorited -->
+                            <form action="/games/<%= g._id %>/unfavor/<%= user._id %>" method="POST">
+                                <button type="submit" id="fave-button"><img id="fave-icon" src="/public/images/favorite-star.png" alt="favorite star"></button>
+                            </form>
+                        <% } %>
+                    <% } %>
+                    <h3><%= g.name %></h3><hr>
+                    <div id="tag-list">
+                        <!-- create tag list for the game -->
+                        <% if (g.tags.length) { %>
+                            <% g.tags.forEach(function(t) { %>
+                                <div id="tag-div">
+                                    <p class="tag"><%= t.name %></p>
+                                </div>
+                            <% }); %>
+                        <% } %>
+                    </div>
+                    <a href="/reviews/<%= g._id %>">Reviews</a>
+                </div>
+            <% }) %>
+        </section>
+    <% } else { %>
+        <p id="no-favorites">No favorite games yet</p>
+    <% } %>
+</secction>
 
 <script src="/javascripts/edit-reviews.js"></script>
 <%- include('../partials/footer') %>
