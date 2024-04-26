@@ -7,7 +7,7 @@ Good Game Reviews, as the title mentions, is a site where you can post and view 
 
 ## Photos
 
-Trello Planning: ![Trello link](https://trello.com/b/bgOTgdGp/project-2)
+Trello Planning: [Trello link](https://trello.com/b/bgOTgdGp/project-2)
 
 #### Landing page
 ![Landing page](public/images/Readme-photos/main-page.png)
@@ -36,7 +36,7 @@ Trello Planning: ![Trello link](https://trello.com/b/bgOTgdGp/project-2)
 
 ## Getting Started
 
-Deployed site: ![Website link](https://good-game-reviews-096487dcaa4f.herokuapp.com/)
+Deployed site: [Website link](https://good-game-reviews-096487dcaa4f.herokuapp.com/)
 
 #### Making a post
 
