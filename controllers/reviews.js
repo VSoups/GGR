@@ -35,7 +35,7 @@ async function update(req, res) {
 
 async function show(req, res) {
     const game = await Game.findById(req.params.id);
-    const reviews = await Review.find({ game: `${game._id}` });
+    const reviews = await Review.find({ game: game._id });
 
     res.render('reviews/show', { title: `GGR: ${game.name}`, game, reviews})
 }

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const gameSchema = new Schema({
     // Steam API's 'appid' property does not capitalize the 'I' in id
-    appid: Number,
+    // appid: Number, // ICEBOX
     name: String,
     favoritedBy: [{
         type: Schema.Types.ObjectId,

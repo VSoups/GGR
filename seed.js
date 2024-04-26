@@ -3,6 +3,7 @@ require('./config/database');
 
 const Game = require('./models/game');
 const Tag = require('./models/tag');
+const Review = require('./models/review');
 
 const data = require('./data');
 
@@ -24,15 +25,25 @@ const data = require('./data');
     
     // test tag and game association
     results = await Promise.all([
-        Game.findOne({ name: /[tT]erraria/ }),
-        Tag.findOne({ name: /2[dD]/ })
+        Game.findOne({ name: /[Ss]tardew/ }),
+        Review.findOne({ gameName: /[Ss]tardew/ }),
+        Game.findOne({ name: /[Oo]uter/ }),
+        Review.findOne({ gameName: /[Oo]uter/ })
     ]);
     // add 2d tag we found in previous promise and add to terraria which we also found and saved
-    const terraria = results[0];
-    const _2d = results[1];
-    terraria.tags.push(_2d);
-    await terraria.save();
-    console.log('Terraria with 2D tag', terraria);
+    const stardew = results[0];
+    const rev1 = results[1];
+    const outer = results[2];
+    const rev2 = results[3];
+    rev1.game = stardew._id;
+    rev2.game = outer._id;
+
+    await stardew.save();
+    await outer.save();
+    await rev1.save();
+    await rev2.save();
+
+    console.log(`1 | Review: ${rev1.game}, Game: ${stardew._id}`, `2 | Review: ${rev2.game}, Game: ${outer._id}`);
 
     process.exit();
 })();

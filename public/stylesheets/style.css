@@ -279,8 +279,8 @@ footer {
 }
 
 #no-profile-reviews {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: end;
 }
 
 .review {
