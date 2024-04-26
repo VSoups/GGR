@@ -7,6 +7,8 @@ Good Game Reviews, as the title mentions, is a site where you can post and view 
 
 ## Photos
 
+Trello Planning: ![Trello link](https://trello.com/b/bgOTgdGp/project-2)
+
 #### Landing page
 ![Landing page](public/images/Readme-photos/main-page.png)
 
