@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+
 * {
   box-sizing: border-box;
 }
@@ -9,7 +12,6 @@ html, body {
   margin: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
 body {
   padding: 50px;
